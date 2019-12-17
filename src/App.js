@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import superagent from "superagent";
+import Toolbar from './components/Toolbar'
 
 class App extends Component {
   url = "http://localhost:4000";
@@ -47,16 +48,12 @@ class App extends Component {
 
     return (
       <div className="App">
-        <Link to="/"> Home </Link>
-        <Link to="/signUp">signUp</Link>
-        <Link to="/login">Login</Link>
-
+        <Toolbar/>
         <div>
           <Route path="/" exact component={Home} />
           <Route path="/signUp" exact component={SignUp} />
           <Route path="/login" exact component={Login} />
         </div>
-
         <form onSubmit={this.onSubmit}>
           <input type="text" onChange={this.onChange} value={this.state.text} />
           <button>Submit</button>
