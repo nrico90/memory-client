@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import signUpReducer from "./signUps/reducer";
+import signUpReducer from "./signUp/reducer";
 import loginReducer from "./login/reducer";
 import roomReducer from "../store/room/reducer";
 
