@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../store/login/action";
+import { Link } from "react-router-dom";
+
 
 class LoginPage extends React.Component {
   state = {
@@ -49,6 +51,9 @@ class LoginPage extends React.Component {
           <p>
             <button type="submit">Login</button>
           </p>
+          <nav>
+            <p>After you have logged in click <Link to="/">Here</Link> to join the Game Lobby </p>
+          </nav>
         </form>
       </div>
     );

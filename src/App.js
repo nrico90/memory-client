@@ -11,6 +11,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <br />
+        <h1>MEMORY GAME!</h1>
         <Toolbar />
         <div>
           <Route path="/" exact component={Home} />

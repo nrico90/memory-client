@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signUp } from "../store/signUp/actions";
+import { Link } from 'react-router-dom'
 
 class SignUp extends Component {
   state = {
@@ -47,6 +48,9 @@ class SignUp extends Component {
           <p>
             <button type="submit">Sign Up</button>
           </p>
+          <nav>
+            <p>After you have signed up click <Link to="/login">Here</Link> to login </p>
+          </nav>
         </form>
       </div>
     );
