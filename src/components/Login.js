@@ -13,10 +13,10 @@ class LoginPage extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     const action = login(this.state.email, this.state.password);
-    // const actionId = this.props
     this.props.dispatch(action);
-    // this.props.dispatch(actionId);
     this.setState({ email: "", password: "" });
+    this.props.history.push(`/`);
+
   };
 
   handleChange = event => {
@@ -51,9 +51,6 @@ class LoginPage extends React.Component {
           <p>
             <button type="submit">Login</button>
           </p>
-          <nav>
-            <p>After you have logged in click <Link to="/">Here</Link> to join the Game Lobby </p>
-          </nav>
         </form>
       </div>
     );

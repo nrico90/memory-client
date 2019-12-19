@@ -14,6 +14,8 @@ class SignUp extends Component {
     const action = signUp(this.state.email, this.state.password);
     this.props.dispatch(action);
     this.setState({ email: "", password: "" });
+    this.props.history.push(`/login`);
+
   };
 
   handleChange = event => {
@@ -48,9 +50,6 @@ class SignUp extends Component {
           <p>
             <button type="submit">Sign Up</button>
           </p>
-          <nav>
-            <p>After you have signed up click <Link to="/login">Here</Link> to login </p>
-          </nav>
         </form>
       </div>
     );

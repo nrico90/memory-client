@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import superagent from "superagent";
 import { Link } from "react-router-dom";
 import api from "../api";
 import "../style/Home.css";
@@ -42,6 +41,7 @@ class Home extends Component {
         body: { room: gameroomId },
         jwt: this.props.jwt
       });
+      this.props.history.push(`/room/${gameroomId}`);
       console.log("response test:", response);
     } catch (error) {
       console.log(error);
