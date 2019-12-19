@@ -5,10 +5,9 @@ import { Link } from "react-router-dom";
 import "../style/Home.css";
 
 class Home extends Component {
-
-  reset = () => {
-    this.setState({ text: "" });
-  };
+  url = "https://cryptic-sea-59697.herokuapp.com"
+  stream = new EventSource(`${this.url}/stream`);
+  state = { text: "" };
 
   componentDidMount() {
     this.stream.onmessage = event => {
@@ -18,6 +17,10 @@ class Home extends Component {
       this.props.dispatch(action);
     };
   }
+
+  reset = () => {
+    this.setState({ text: "" });
+  };
 
   onSubmit = async event => {
     event.preventDefault();
