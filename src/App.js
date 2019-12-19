@@ -7,7 +7,14 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Toolbar from "./components/Toolbar";
 
+
+
+
 class App extends Component {
+  url = "https://cryptic-sea-59697.herokuapp.com"
+  stream = new EventSource(`${this.url}/stream`);
+  state = { text: "" };
+
   render() {
     return (
       <div className="App">

@@ -5,9 +5,6 @@ import { Link } from "react-router-dom";
 import "../style/Home.css";
 
 class Home extends Component {
-  url = "http://localhost:4000";
-  stream = new EventSource(`${this.url}/stream`);
-  state = { text: "" };
 
   reset = () => {
     this.setState({ text: "" });
