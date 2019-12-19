@@ -7,5 +7,5 @@ export default combineReducers({
   //reducer
   signUp: signUpReducer,
   login: loginReducer,
-  gameroom: roomReducer
+  gamerooms: roomReducer
 });

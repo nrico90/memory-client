@@ -8,7 +8,19 @@ import Login from "./components/Login";
 import Toolbar from "./components/Toolbar";
 
 class App extends Component {
-  
+  url = "http://localhost:4000";
+  //"https://cryptic-sea-59697.herokuapp.com"
+  stream = new EventSource(`${this.url}/stream`);
+
+  componentDidMount() {
+    this.stream.onmessage = event => {
+      const { data } = event;
+      const action = JSON.parse(data);
+      console.log(action);
+
+      this.props.dispatch(action);
+    };
+  }
 
   render() {
     return (

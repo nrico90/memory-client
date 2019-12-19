@@ -5,8 +5,6 @@ export default function reducer(state = initialState, action = {}) {
     case "ALL_GAMEROOMS":
       return action.payload;
     case "NEW_GAMEROOM": {
-      console.log("reducer");
-
       return [...state, action.payload];
     }
     default: {

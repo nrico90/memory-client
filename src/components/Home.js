@@ -2,22 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import superagent from "superagent";
 import { Link } from "react-router-dom";
+import api from "../api";
 import "../style/Home.css";
 
 class Home extends Component {
-  url = "https://cryptic-sea-59697.herokuapp.com"
-  stream = new EventSource(`${this.url}/stream`);
-  state = { text: "" };
-
-  componentDidMount() {
-    this.stream.onmessage = event => {
-      const { data } = event;
-      const action = JSON.parse(data);
-      console.log(action);
-      this.props.dispatch(action);
-    };
-  }
-
+  state = {
+    text: ""
+  };
   reset = () => {
     this.setState({ text: "" });
   };
@@ -25,9 +16,12 @@ class Home extends Component {
   onSubmit = async event => {
     event.preventDefault();
     try {
-      const response = await superagent
-        .post(`${this.url}/gameroom`)
-        .send({ name: this.state.text });
+      const response = await api("/gameroom", {
+        method: "POST",
+        body: { name: this.state.text },
+        jwt: this.props.jwt
+      });
+
       this.reset();
       console.log("response test:", response);
     } catch (error) {
@@ -40,9 +34,29 @@ class Home extends Component {
     this.setState({ text: value });
   };
 
+  onClick = async gameroomId => {
+    console.log("gameroomId test:", gameroomId);
+    try {
+      const response = await api("/join", {
+        method: "PUT",
+        body: { room: gameroomId },
+        jwt: this.props.jwt
+      });
+      console.log("response test:", response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   render() {
     const { rooms } = this.props;
-    const list = rooms.map(room => <div key={room.id}> {room.name} </div>);
+    const list = rooms.map(room => (
+      <div key={room.id}>
+        {" "}
+        {room.name}
+        <button onClick={() => this.onClick(room.id)}>Join</button>
+      </div>
+    ));
     if (!this.props.jwt) {
       return (
         <div>
@@ -78,7 +92,7 @@ class Home extends Component {
 const mapStateToProps = reduxState => {
   console.log("redux:", reduxState);
   return {
-    rooms: reduxState.gameroom,
+    rooms: reduxState.gamerooms,
     jwt: reduxState.login.jwt
   };
 };
