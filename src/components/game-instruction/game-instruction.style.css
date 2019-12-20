@@ -1,0 +1,29 @@
+.instruction {
+  text-align: justify;
+  color: #e9f0f0;
+  width: 80%;
+  border: 1px solid #95dada;
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: black;
+}
+
+.instruction p {
+  font-size: 18px;
+}
+
+.play-button {
+  font-size: 25px;
+  width: 180px;
+  height: 40px;
+  margin-top: 10px;
+  border: 1px solid #95dada;
+  border-radius: 20px;
+  color: #e9f0f0;
+  background: linear-gradient(
+    to top,
+    rgba(7, 27, 82, 1) 0%,
+    rgba(0, 128, 128, 1) 100%
+  );
+}

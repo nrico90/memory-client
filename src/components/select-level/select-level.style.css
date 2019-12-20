@@ -1,0 +1,23 @@
+.level {
+  padding-bottom: 20px;
+  text-align: center;
+  background-color: black;
+}
+.level .level-button {
+  font-size: 25px;
+  width: 180px;
+  height: 40px;
+  margin-right: 10px;
+  border: 1px solid #95dada;
+  border-radius: 20px;
+  color: #e9f0f0;
+  background: linear-gradient(
+    to top,
+    rgba(7, 27, 82, 1) 0%,
+    rgba(0, 128, 128, 1) 100%
+  );
+}
+.level-title {
+  font-size: 28px;
+  color: #e9f0f0;
+}

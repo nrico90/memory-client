@@ -1,3 +1,7 @@
-h2, h3{
-    font-size: 15px;
+h2,
+h3 {
+  font-size: 15px;
+}
+.homy {
+  height: 500px;
 }

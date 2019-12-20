@@ -1,12 +1,11 @@
 .App {
   text-align: center;
-  /* background-image: url('https://cdn.shopify.com/s/files/1/0322/7017/products/SLM-225_B_2048x.jpg?v=1396120490'); */
-
+  background-color: white;
+  height: 500px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.things {
+  height: 500px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -16,7 +15,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

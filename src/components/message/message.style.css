@@ -1,0 +1,13 @@
+.message {
+  border: 1px solid #95dada;
+  border-radius: 20px;
+  width: 400px;
+  height: 250px;
+  position: relative;
+  left: 35%;
+  background-color: black;
+}
+.message p {
+  font-size: 40px;
+  color: #e9f0f0;
+}

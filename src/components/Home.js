@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import api from "../api";
 import "../style/Home.css";
+import { GameInstruction } from "./game-instruction/game-instruction";
 
 class Home extends Component {
   state = {
@@ -54,12 +55,14 @@ class Home extends Component {
       <div key={room.id}>
         {" "}
         {room.name}
-        <button onClick={() => this.onClick(room.id)}>Join</button>
+        <Link key={room.id} to={`/game-instruction`} children={GameInstruction}>
+          <button onClick={room.id}>Join Game</button>
+        </Link>{" "}
       </div>
     ));
     if (!this.props.jwt) {
       return (
-        <div>
+        <div className="homy">
           <Link to="/signup">
             <h2>Please Sign Up to enter the Game Lobby</h2>
           </Link>
@@ -67,10 +70,6 @@ class Home extends Component {
           <Link to="/login">
             <h3>Login if you already have an account</h3>
           </Link>
-          <img
-            alt="jpg"
-            src="https://cdn.shopify.com/s/files/1/0322/7017/products/SLM-225_B_2048x.jpg?v=1396120490"
-          ></img>
         </div>
       );
     }

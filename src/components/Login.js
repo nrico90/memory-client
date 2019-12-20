@@ -1,8 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import { login } from "../store/login/action";
-import { Link } from "react-router-dom";
-
 
 class LoginPage extends React.Component {
   state = {
@@ -16,7 +14,6 @@ class LoginPage extends React.Component {
     this.props.dispatch(action);
     this.setState({ email: "", password: "" });
     this.props.history.push(`/`);
-
   };
 
   handleChange = event => {
